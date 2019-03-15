@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2, 4, 22, 0.322);
+    height: 100px;
+    margin: 10px;
+}
+
+section {
+    display: flex;
+    /*Can be row or column in direciton, and reversed*/
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+article {
+    flex: 1 100px;
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+    background: rgba(40, 82, 196, 0.808);
+    text-align: center;
+}
+
+article:nth-of-type(3) div:first-child {
+    flex: 1 100px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button {
+    flex: 1 auto;
+    margin: 5px;
+    font-size: 18px;
+    line-height: 1.5;
+}
