@@ -19,7 +19,6 @@ article {
     padding: 10px;
     margin: 10px 10px 10px 10px;
     background: rgba(40, 82, 196, 0.808);
-    text-align: center;
 }
 
 article:nth-of-type(3) div:first-child {
