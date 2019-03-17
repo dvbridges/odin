@@ -1,0 +1,81 @@
+html {
+    background-color: rgba(0, 0, 0, 0.719);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rebeccapurple;
+    margin-bottom: 20px;
+    height: 100px;
+}
+
+h1 {
+    position: fixed;
+    margin: 20px auto;
+    background-color: rebeccapurple
+}
+
+.sticky {
+    position: sticky;
+    top: 20px;
+    background-color: white;
+}
+
+body {
+    /*If no ancestor elements have their position property explicitly defined, 
+        then by default all ancestor elements will have a static position. 
+        This positions all absolute elements relative to body*/
+    position: relative;
+}
+
+.one {
+    display: flex;
+    position: static;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    background-color: rebeccapurple;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.two {
+    background-color: rgb(22, 211, 22);
+}
+
+.three {
+    position: relative;
+    text-align: center;
+    background-color: rgb(211, 198, 22);
+    top: -600px;
+    left: 320px;
+}
+
+.four {
+    position: absolute;
+    top: 600px;
+    left: 500px;
+    text-align: center;
+    background-color: rgba(22, 110, 211, 0.829);
+    /*Change depth of this element*/
+    z-index: -1;
+}
+
+.five {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    top: 600px;
+    left: 225px;
+    text-align: center;
+    background-color: rgba(22, 211, 211, 0.952);
+}
+
+.fonts {
+    font-family: monospace;
+    font-size: 2vw;
+    color: rgb(216, 20, 118);
+}
