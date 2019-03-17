@@ -1,0 +1,34 @@
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.63);
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 75%;
+    margin: 0 auto;
+    column-count: 3;
+    column-width: 200px;
+    column-gap: 20px;
+    column-rule-style: dashed;
+    column-rule-color: rgba(0, 0, 0, 0.6);
+    column-rule-width: 2px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(10, 26, 247, 0.418);
+    padding: 10px;
+    margin: 0 0 1em 0;
+    /* If you want to keep sections in tact*/
+    /* break-inside: avoid; */
+    /* page-break-inside: avoid; */
+}
+
+.fonts {
+    size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
