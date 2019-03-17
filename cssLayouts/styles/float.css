@@ -1,0 +1,35 @@
+    html {
+        background-color: rgba(0, 0, 0, 0.719);
+    }
+    
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rebeccapurple;
+        margin-bottom: 20px;
+    }
+    
+    .one {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: left;
+        width: 300px;
+        height: 300px;
+        background-color: rebeccapurple;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .fonts,
+    .floatedPara,
+    .unfloatedPara {
+        font-family: monospace;
+        font-size: 2vw;
+        color: rgb(92, 216, 20);
+    }
+    
+    .unfloatedPara {
+        clear: left;
+    }
