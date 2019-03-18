@@ -1,6 +1,8 @@
 html,
 body {
     height: 100%;
+    margin: 0;
+    font-family: arial, sans-serif;
 }
 
 .container {
@@ -10,21 +12,117 @@ body {
     justify-content: center;
 }
 
-.searchbox {
+.navBar {
+    margin: 20px;
+    height: 30px;
+    width: 95%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+    display: inline;
+}
+
+a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    opacity: 0.75;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 13px;
+}
+
+.navButton {
+    background-color: #4285f4;
+    width: 75px;
+    border: 1px solid #4285f4;
+    font-weight: bold;
+    outline: none;
+}
+
+img {
+    height: 210px;
+    width: 525px;
+}
+
+.logo {
     margin-top: 89px;
     height: 233px;
 }
 
-img {
-    height: 200px;
-    width: 440px;
-}
-
-.input-box {
+.input-container {
     background: #fff;
+    margin-top: -10px;
+    padding-top: 0;
     width: 582px;
-    height: 44px;
-    margin: 0 auto;
+    height: 48px;
     border-radius: 24px;
     border: 1px solid #dfe1e5;
+}
+
+input[type=text] {
+    background: transparent;
+    border: none;
+    color: #666;
+    padding: 5px 10px;
+    width: 554px;
+    line-height: 34px !important;
+    height: 34px;
+    outline: none;
+    word-wrap: break-word;
+    font-family: arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.input-container:hover,
+.input-container:focus-within {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    border-color: rgba(223, 225, 229, 0);
+    border-radius: 24px;
+}
+
+center {
+    justify-content: space-evenly;
+    padding-top: 18px;
+    height: 70px;
+    width: 571px;
+}
+
+button {
+    flex: 1 auto;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    height: 36px;
+    line-height: 27px;
+    border-radius: 4px;
+    color: #5F6368;
+    cursor: pointer;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    min-width: 54px;
+    padding: 0 16px;
+    text-align: center;
+}
+
+button::-moz-focus-inner {
+    border: none;
+}
+
+button:focus {
+    border: 1px solid #1e099950;
+}
+
+button:hover {
+    border: 1px solid #00000050;
+    outline: none;
 }
