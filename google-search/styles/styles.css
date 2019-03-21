@@ -1,0 +1,110 @@
+    html,
+    body {
+        height: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+    }
+    
+    .header {
+        display: flex;
+        padding: 10px;
+        justify-content: left;
+        height: 50px;
+    }
+    
+    .menuItems {
+        height: 50px;
+        width: 100%;
+        padding-right: 20px;
+    }
+    
+    img {
+        height: 50px;
+        width: 120px;
+        padding-right: 20px;
+    }
+    
+    .input-container {
+        background: #fff;
+        padding-left: 20px;
+        width: 582px;
+        height: 48px;
+        border-radius: 24px;
+        border: 1px solid #dfe1e5;
+    }
+    
+    input[type=text] {
+        background: transparent;
+        border: none;
+        color: #666;
+        padding: 5px 10px;
+        width: 554px;
+        line-height: 34px !important;
+        height: 34px;
+        outline: none;
+        word-wrap: break-word;
+        font-family: arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    
+    .input-container:hover,
+    .input-container:focus-within {
+        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+        border-color: rgba(223, 225, 229, 0);
+        border-radius: 24px;
+    }
+    
+    .googleApp {
+        float: right;
+        padding: 15px;
+        padding-right: 30px;
+        opacity: .55;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .navButton {
+        float: right;
+        background-color: #4285f4;
+        border: 1px solid #4285f4;
+        line-height: 28px;
+        font-weight: bold;
+        outline: none;
+    }
+    
+    a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: white;
+    }
+    
+    ul {
+        display: flex;
+        list-style-type: none;
+        margin-left: 160px;
+        padding: 0;
+    }
+    
+    li {
+        color: rgba(0, 0, 0, 0.555);
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+    }
+    
+    li:hover {
+        color: rgba(0, 0, 0, 0.955);
+    }
+    
+    div.horizontal-line {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .push-right {
+        margin-left: auto;
+    }
