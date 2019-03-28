@@ -72,6 +72,7 @@ input[type=text] {
     float: right;
     background-color: #4285f4;
     border: 1px solid #4285f4;
+    color: white;
     line-height: 28px;
     font-weight: bold;
     outline: none;
@@ -83,7 +84,6 @@ a {
     text-decoration: none;
     padding-left: 10px;
     padding-right: 10px;
-    color: white;
 }
 
 ul {
@@ -175,45 +175,27 @@ em {
     color: rgba(0, 0, 0, 0.7) !important;
 }
 
+.tableMargins {
+    margin-left: 160px;
+}
+
+table {
+    display: flex;
+    width: 582px;
+    margin: 24px;
+    justify-content: center;
+}
+
+tbody {
+    display: flex;
+}
+
 .navBar {
-    margin: 20px;
-    height: 30px;
-    width: 95%;
-}
-
-.leftNav {
-    display: flex;
-    float: left;
-    align-items: center;
-    justify-content: center;
-}
-
-.rightNav {
-    display: flex;
-    float: right;
-    align-items: center;
-    justify-content: center;
-}
-
-.upperFooter {
-    position: fixed;
-    margin: 0;
-    height: 40px;
-    line-height: 40px;
-    width: 100%;
-    min-width: 980px;
-    background-color: #f2f2f2;
-    bottom: 40px;
-}
-
-.lowerFooter {
-    position: fixed;
-    margin: 0;
-    height: 40px;
-    line-height: 40px;
-    width: 100%;
-    min-width: 980px;
-    background-color: #f2f2f2;
+    overflow: hidden;
+    background-color: #e4e4e4;
     bottom: 0;
-    border-top: 1px solid rgb(224, 224, 224);
+    width: 100%;
+    height: 55px;
+    line-height: 1;
+    padding: 5px;
 }
