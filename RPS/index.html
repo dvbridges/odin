@@ -9,8 +9,7 @@
 
 <body>
 
-  <script>
-		
+	<script>
 		/**
 		* Random number generator
 		* @return {int} - random number between 1 and 3
@@ -90,7 +89,7 @@
 				var comp = computerPlay();
 				var user = userPlay();
 				var outcome = getWinner(user, comp);
-			  var outcomeString = getOutcomeString(outcome); 	
+				var outcomeString = getOutcomeString(outcome); 	
 				alert(`${outcomeString[0]} ${user} ${outcomeString[1]} ${comp}`);
 				return outcome
 			}
@@ -111,8 +110,7 @@
 				winText = finalScore > Math.floor(nGames/2) ? "WON!" : "LOST!";
 				alert(`You played ${nGames} games and ${winText}`);
 			}
-		playGame(5)
-;
+		playGame(5);
   </script>
 </body>
 </html>
