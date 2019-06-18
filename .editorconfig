@@ -10,8 +10,10 @@ indent_style = space
 
 # Python files
 [*.{py}]
+indent_style = tab
 indent_size = 4
 
 # HTML+CSS/JS  files
 [*.{html, css, js}]
+indent_style = tab
 indent_size = 2
