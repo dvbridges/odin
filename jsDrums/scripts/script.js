@@ -1,10 +1,10 @@
 var btns = document.querySelectorAll('button');
 var btnList = Array.from(btns)
 var sounds = ['resources/sounds/boom.wav',
-			'resources/sounds/kick.wav',
-			'resources/sounds/snare.wav',
-			'resources/sounds/tom.wav',
-			'resources/sounds/clap.wav']
+		'resources/sounds/kick.wav',
+		'resources/sounds/snare.wav',
+		'resources/sounds/tom.wav',
+		'resources/sounds/clap.wav']
 
 const sound = new Audio();
 
@@ -14,7 +14,7 @@ var playSound = (file) =>
 
 for (let i=0; i<btnList.length; i++)
 {
-  btnList[i].addEventListener('mousedown', (e) => {
+	btnList[i].addEventListener('mousedown', (e) => {
 	  e.target.style.backgroundColor = 'limegreen';
 	  e.target.style.borderColor = 'rebeccapurple';
 	  e.target.style.borderWidth = '4px';
