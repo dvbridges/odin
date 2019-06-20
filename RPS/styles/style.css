@@ -1,0 +1,70 @@
+.container {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.score-container {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	height: 100px;
+}
+
+.score {
+  margin: 30px;
+	font-size: 40px;
+	width: 150px;
+	text-align: center;
+}
+
+.battle-zone-container {
+  display: flex;
+  margin: 20px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.arena {
+	margin: 10px;
+	height: 100px;
+	width: 200px;
+	outline: none;
+  font-family: 'Press Start 2P', cursive;
+	font-size: 35px;
+	text-align: center;
+}
+
+.action-container {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	height: 150px;
+}
+
+.action-button {
+	margin: 10px;
+	height: 100px;
+	width: 200px;
+	outline: none;
+  font-family: 'Press Start 2P', cursive;
+	font-size: 35px;
+	background-color: white;
+}
+
+.play-container {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.play-button {
+	margin: 10px;
+	height: 100px;
+	width: 200px;
+	outline: none;
+  font-family: 'Press Start 2P', cursive;
+	font-size: 35px;
+	color: green;
+}

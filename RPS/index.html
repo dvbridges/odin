@@ -5,112 +5,38 @@
 <head>
   <meta charset="utf8">
   <title "Rock Paper Scissors"></title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css"</link>
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
+	<div class="container">
+		<div class="score-container">
+			<div class="score"><p>User<p></div>
+			<div class="score"><p>Comp<p></div>
+		</div>
+		<div class="score-container">
+			<div class="score"><p id="user-score">0<p></div>
+			<div class="score"><p id="comp-score">0<p></div>
+		</div>
 
-	<script>
-		/**
-		* Random number generator
-		* @return {int} - random number between 1 and 3
-		*/
-		var getRandom = function()
-			{
-				return Math.floor(Math.random() * (Math.floor(4)-Math.ceil(1)));
-			}
-	 
-		/**
-		* Get computer choice
-		* @return {string} choice - Computer choice
-		*/
-		var computerPlay = function ()
-			{
-				var choice = ['rock', 'paper', 'scissors'];
-				return choice[getRandom()]
-			}
+		<div class="battle-zone-container">
+			<div class="arena"><p id='user-action'></p></div>
+			<div class="arena"><p>Vs</p></div>
+			<div class="arena"><p id='comp-action'></p></div>
+		</div>
 
-		/**
-		* Get user choice
-		* @return {string} choices - user choice
-		*/
-		var userPlay = function ()
-			{
-				var choice = prompt("What is your choice?");
-				return choice.toLowerCase()
-			}
-		  
-		/**
-		* Get winner 
-		* @return {Boolean} youWin - True for user win, else false or undefined for draw
-		*/
-		var getWinner = function(user, comp) 
-			{
-				// Check for matching responses
-				var youWin = comp === user ? undefined : false;
-				
-				if ((user === 'rock' && comp === 'scissors')
-					|| (user === 'scissors' && comp === 'paper')
-					|| (user === 'paper' && comp === 'rock'))
-					youWin = true;
-				return youWin
-			}
-		
-		/**
-		* Get the game outcome as string
-		* @param {Boolean} outcome - Bool for win/lose or undefined for draw 
-		* @return {string} outcomeString - array containing outcome strings  
-		*/
-		var getOutcomeString = function(outcome)
-			{
-				outcomeString = [];
-				if (outcome === undefined)
-					{
-						outcomeString.push("You draw!");
-						outcomeString.push("draws with");
-					} else if (outcome === true)
-					{
-						outcomeString.push("You win!");
-						outcomeString.push("beats");
-					} else if (outcome === false)
-					{
-						outcomeString.push("You lose!");
-						outcomeString.push("loses to");
-					}
-				return outcomeString
-			}
+		<div class="action-container">
+			<div><button class='action-button' name='ROCK'>ROCK</button></div>
+			<div><button class='action-button' name='PAPA'>PAPA</button></div>
+			<div><button class='action-button' name='SZAS'>SZAS</button></div>
+		</div>
 
-		
-		/**
-		* Play single game of RPS
-		* @return {Boolean} outcome - Bool for win/lose or undefined for draw 
-		*/
-		var game = function()
-			{
-				var comp = computerPlay();
-				var user = userPlay();
-				var outcome = getWinner(user, comp);
-				var outcomeString = getOutcomeString(outcome); 	
-				alert(`${outcomeString[0]} ${user} ${outcomeString[1]} ${comp}`);
-				return outcome
-			}
-		
-		/**
-		* Play RPS for n number of games
-		* @param {int} nGames - number of games to play
-		* @return {Void}
-		*/
-		var playGame = function(nGames)
-			{
-				var finalScore = 0;
-				for (i=0; i<nGames; i++)
-					{
-						outcome = game();
-						finalScore += outcome ? 1: 0
-					};
-				winText = finalScore > Math.floor(nGames/2) ? "WON!" : "LOST!";
-				alert(`You played ${nGames} games and ${winText}`);
-			}
-		playGame(5);
-  </script>
+		<div class="play-container">
+			<div><button class='play-button'>BEGIN</button></div>
+		</div>
+
+	</div>
+	<script src="scripts/script.js"></script>
 </body>
 </html>
