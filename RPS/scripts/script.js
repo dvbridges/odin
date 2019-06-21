@@ -2,7 +2,7 @@ const actions = Array.from(document.querySelectorAll('.action-button'));
 const fontCol = ['rgba(19, 133, 255, 1)', 'rgba(184, 0, 101, 1)', 'rgba(54, 168, 1, 1)'];
 const bgCol = ['rgba(19, 133, 255, .3)', 'rgba(184, 0, 101, .3)', 'rgba(54, 168, 1, .3)'];
 const choice = ['ROCK', 'PAPA', 'SZAS'];
-
+var attached = false;
 
 /**
  * Get user and comp choices
@@ -61,13 +61,24 @@ var setArenaText = function(name) {
   setScore();
 	if (endGame().length > 0) {
 	  alert(endGame());
-		disableButton('.play-button', false);
-		// Reset scores
-		document.querySelector('#user-score').textContent = 0
-		document.querySelector('#comp-score').textContent = 0
+		resetGame()
 	}
-
 }
+
+var resetGame = function() {
+	disableButton('.play-button', false);
+	// Reset scores
+	document.querySelector('#user-score').textContent = 0
+	document.querySelector('#comp-score').textContent = 0
+	for (let i=0; i<actions.length; i++)
+	{
+		actions[i].style.color = 'black';
+		actions[i].style.backgroundColor = 'white';
+		actions[i].style.borderColor = 'lightgrey';
+		actions[i].style.borderStyle = '1px';		
+	}
+}
+
 
 var setScore = function() {
 	let user = document.querySelector('#user-score');	
@@ -105,10 +116,13 @@ var play = function () {
 		actions[i].style.color = fontCol[i];
 		actions[i].style.backgroundColor = bgCol[i];
 		actions[i].style.borderColor = bgCol[i];
-		actions[i].style.borderStyle = '2px';		
-		actions[i].addEventListener('click', (e) => {setArenaText(e.target.name); });
+		actions[i].style.borderStyle = '2px';
+		if (!attached) {
+			actions[i].addEventListener('click', (e) => {setArenaText(e.target.name); });
+		}
 	}
 	disableButton(".play-button", true);
+	attached = true;
 }
 
 var begin = function () {
