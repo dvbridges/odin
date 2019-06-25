@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+	
+}
+
+.main-container {
+  display: flex;
+	flex-direction: column ;
+	align-items: center;
+	justify-content: center;
+}
+
+.header {
+	display: flex;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 30px;
+	align-items: center;
+	justify-content: center;
+
+}
+
