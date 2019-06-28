@@ -1,6 +1,34 @@
 .container {
   display: flex;
-	
+	background-color: white;
+}
+
+.button-container {
+	height: 70px;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.buttons {
+	margin: 10px;
+	font-family: 'Press Start 2P', cursive;
+	height: 40px;
+	width: 120px;
+	border: 2px solid black;
+  background-color: white; 
+	outline: none;
+}
+
+.buttons:hover {
+  background-color: #f79d1e; /* Green */
+  color: white;
+	border: 2px solid black;
+}
+
+.buttons:active {
+  background-color: #e67700;
+  transform: scaleY(.95) scaleX(.95);
 }
 
 .main-container {
@@ -8,6 +36,7 @@
 	flex-direction: column ;
 	align-items: center;
 	justify-content: center;
+	background-image: linear-gradient(orange, #ff5500, #11184f, black);
 }
 
 .header {
@@ -16,6 +45,6 @@
 	font-size: 30px;
 	align-items: center;
 	justify-content: center;
-
+  color: rgb(51, 51, 51);
+  text-shadow: -3px 0 1px rgb(30,242,180) , 3px 0 1px rgb(246,211,10) ;
 }
-
