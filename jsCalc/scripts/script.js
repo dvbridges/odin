@@ -1,15 +1,12 @@
-// get the calc container
-
-var btnPanel = document.getElementsByClassName('number-panel')
-var opPanel = document.getElementsByClassName('operation-panel')
-var digiScreen = document.getElementsByClassName('digi-screen')
-
-
 var multiply = function(arr) {
 	return arr.reduce((a,b) => a * b, 1);
 }
 
 var divide = function(arr) {
+	if (checkZeroDivision(arr)) {
+		setWarning()
+		return
+	}
 	return arr.reduce((a,b) => a / b);
 }
 
@@ -21,44 +18,69 @@ var subtract = function(arr) {
 	return arr.reduce((a,b) => a - b);
 }
 
+var equals = function(arr) {
+ digiScreen[0].firstElementChild.value = [...arr];
+}
+
 var getOperations = function () {
-  var ops = ['*', '/', '+', '-']
-	var funcs = [multiply, divide, add, subtract]
+  // Create object from two arrays
 	return ops.reduce((o, k, i) => ({...o, [k]: funcs[i]}), {})
 }
 
+var checkZeroDivision = function (arr) {
+	return arr.indexOf(0) > -1   
+}
+
+var setWarning = function() {
+	alert(true);
+}
+
+var digiScreen = document.getElementsByClassName('digi-screen')
+var btnPanel = document.getElementsByClassName('number-panel')
+var opPanel = document.getElementsByClassName('operation-panel')
+var funcs = [multiply, divide, add, subtract]
+var ops = ['*', '/', '+', '-']
 
 var computeVal = function () {
 	// Get full expression as string
 	let arr = digiScreen[0].firstElementChild.value;
 	// Get full expression as array
 	let fullExpr = arr.split(/(\d+)/).filter(i => i.length > 0  );
-	// Get all operators as array	
-	let ops = arr.split(/\d+/).filter(i => i.length > 0  );
 	// Get operation functions as object
-	let opFunctions = getOperations()
+	var opFunctions = getOperations()
+  // Set order of operations
 	
 	// Loop through each operation found in expression
 	for (let op of ops) {
-		if (fullExpr.indexOf(op) > -1) {
+		while (fullExpr.indexOf(op) > -1) {
 			// Index operator
-			index = fullExpr.indexOf(op);
+			let index = fullExpr.indexOf(op);
 			// Get digits before and after operator
-			expr = [Number(fullExpr[index-1]), Number(fullExpr[index+1])]; 
+			let expr = [Number(fullExpr[index-1]), Number(fullExpr[index+1])]; 
 			// Make calculation and replace calculated number and operator with outcome
-			fullExpr.splice(index-1, index+2, opFunctions[op](expr));
+			fullExpr.splice(index-1, 3, opFunctions[op](expr));
 		}	
 	}
-
+	// Equals
+	equals(fullExpr)
 }
-
 
 var addText = function (btn) {
 	btn.addEventListener('mousedown', (evt) => {
-		if (evt.target.value !== '=') {
-			digiScreen[0].firstElementChild.value += evt.target.value;
-		} else {
+		var digi = digiScreen[0].firstElementChild
+		var exprLen = digi.value.length; 
+		var empty = exprLen === 0; 
+		var opPressed = ops.indexOf(evt.target.value) > -1;   
+		if (evt.target.value === '=') {
 			computeVal()
+		} else if (evt.target.value === 'AC') {
+			digiScreen[0].firstElementChild.value = '';
+		} else if (empty && opPressed) {
+			return
+		} else if (opPressed && ops.indexOf(digi.value[exprLen - 1]) > -1) {
+			return
+		} else {
+			digi.value += evt.target.value;
 		}
 	})
 	return btn
