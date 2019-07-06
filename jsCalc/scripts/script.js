@@ -4,8 +4,7 @@ var multiply = function(arr) {
 
 var divide = function(arr) {
 	if (checkZeroDivision(arr)) {
-		setWarning()
-		return
+		setWarning(true);
 	}
 	return arr.reduce((a,b) => a / b);
 }
@@ -18,8 +17,12 @@ var subtract = function(arr) {
 	return arr.reduce((a,b) => a - b);
 }
 
+var roundSum = function (arr) {
+	return (arr[0] % 1) > 0 ? Number(arr[0].toFixed(7)) : arr[0]
+}
+
 var equals = function(arr) {
- digiScreen[0].firstElementChild.value = [...arr];
+  digiScreen[0].firstElementChild.value = roundSum(arr);
 }
 
 var getOperations = function () {
@@ -31,9 +34,24 @@ var checkZeroDivision = function (arr) {
 	return arr.indexOf(0) > -1   
 }
 
-var setWarning = function() {
-	alert(true);
+var setWarning = function(toggle) {
+	let warn = document.getElementsByClassName('warning');
+	let para = warn[0].querySelector('p');
+	let msg = "Zero-division: Put the calculator down, and walk away!"
+	toggle ? para.textContent = msg : para.textContent = '';
+	setTimeout(setWarning, 3000, false); 
 }
+
+
+var sound = new Audio();
+var playAudio = function (src) {
+	sound.src = src;
+	sound.play()
+}
+
+numSound = './resources/beep-23.wav';
+eqSound = './resources/beep-24.wav';
+
 
 var digiScreen = document.getElementsByClassName('digi-screen')
 var btnPanel = document.getElementsByClassName('number-panel')
@@ -41,11 +59,12 @@ var opPanel = document.getElementsByClassName('operation-panel')
 var funcs = [multiply, divide, add, subtract]
 var ops = ['*', '/', '+', '-']
 
+
 var computeVal = function () {
 	// Get full expression as string
 	let arr = digiScreen[0].firstElementChild.value;
 	// Get full expression as array
-	let fullExpr = arr.split(/(\d+)/).filter(i => i.length > 0  );
+	let fullExpr = arr.split(/(\d*\.?\d+)/).filter(i => i.length > 0  );
 	// Get operation functions as object
 	var opFunctions = getOperations()
   // Set order of operations
@@ -71,16 +90,22 @@ var addText = function (btn) {
 		var exprLen = digi.value.length; 
 		var empty = exprLen === 0; 
 		var opPressed = ops.indexOf(evt.target.value) > -1;   
-		if (evt.target.value === '=') {
+		var pressed = evt.target.value; 
+		// play sound for button
+		['=', 'C'].indexOf(pressed) > -1 ? playAudio(eqSound) : playAudio(numSound)	
+		
+		if (pressed === '=') {
 			computeVal()
-		} else if (evt.target.value === 'AC') {
-			digiScreen[0].firstElementChild.value = '';
+		} else if (pressed === 'C') {
+			digi.value = '';
+		} else if (pressed === '<') {
+			digi.value = digi.value.substr(0, exprLen-1);
 		} else if (empty && opPressed) {
 			return
 		} else if (opPressed && ops.indexOf(digi.value[exprLen - 1]) > -1) {
 			return
 		} else {
-			digi.value += evt.target.value;
+			digi.value += pressed;
 		}
 	})
 	return btn
@@ -89,21 +114,28 @@ var addText = function (btn) {
 var createButton = function(n=0) {
   var btn = document.createElement("button");
 	btn.style.width = "50px";
-	btn.style.height = "60px";
+	btn.style.height = ['=', 'C'].indexOf(n) > -1 ? "140px" : "60px";
 	btn.style.marginLeft = "25px";
-	btn.style.marginTop = "30px";
+	btn.style.marginTop = "20px";
 	btn.style.fontSize = "20px";
+	btn.style.fontFamily = "Orbitron, sans serif";
+	btn.style.borderWidth = "2px";
+	btn.style.borderColor = "#86C232"
+	btn.style.backgroundColor = "#747474";
+	btn.style.color = "222629";
+	btn.style.outline = "0";
 	btn.textContent = n;
 	btn.value = n;
 	return btn;
 }
 
 var createNumberBtns = function() {
-	var n = 1;
-	for (let row = 0; row < 3; row++) {
+	var label = Array.from('1234567890.<');
+	n = 0;
+	for (let row = 0; row < 4; row++) {
 		div = document.createElement("div");
 		for (let col = 0; col < 3; col++) {
-			div.appendChild(addText(createButton(n)));		
+			div.appendChild(addText(createButton(label[n])));		
 			n += 1;
 		}
 	btnPanel[0].appendChild(div);
@@ -111,7 +143,7 @@ var createNumberBtns = function() {
 }
 
 var createOperationBtns = function() {
-	var ops = ['+', '-', '/', '*', 'AC', '='];
+	var ops = ['+', '-', '/', '*', '=', 'C'];
   var n = 0;
 	for (let row = 0; row < 3; row++) {
 		div = document.createElement("div");
