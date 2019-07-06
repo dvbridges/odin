@@ -1,3 +1,19 @@
+var operate = function(op, expr) {
+	if (op === '*') {
+		ans = multiply(expr)
+	}
+	if (op === '/') {
+		ans = divide(expr)
+	}
+	if (op === '+') {
+		ans = add(expr)
+	}
+	if (op === '-') {
+		ans = subtract(expr)
+	}
+	return ans;	
+}
+
 var multiply = function(arr) {
 	return arr.reduce((a,b) => a * b, 1);
 }
@@ -18,16 +34,11 @@ var subtract = function(arr) {
 }
 
 var roundSum = function (arr) {
-	return (arr[0] % 1) > 0 ? Number(arr[0].toFixed(7)) : arr[0]
+	return (arr[0] % 1) > 0 ? Number(arr[0].toFixed(9)) : arr[0]
 }
 
 var equals = function(arr) {
   digiScreen[0].firstElementChild.value = roundSum(arr);
-}
-
-var getOperations = function () {
-  // Create object from two arrays
-	return ops.reduce((o, k, i) => ({...o, [k]: funcs[i]}), {})
 }
 
 var checkZeroDivision = function (arr) {
@@ -42,7 +53,6 @@ var setWarning = function(toggle) {
 	setTimeout(setWarning, 3000, false); 
 }
 
-
 var sound = new Audio();
 var playAudio = function (src) {
 	sound.src = src;
@@ -52,22 +62,17 @@ var playAudio = function (src) {
 numSound = './resources/beep-23.wav';
 eqSound = './resources/beep-24.wav';
 
-
 var digiScreen = document.getElementsByClassName('digi-screen')
 var btnPanel = document.getElementsByClassName('number-panel')
 var opPanel = document.getElementsByClassName('operation-panel')
 var funcs = [multiply, divide, add, subtract]
 var ops = ['*', '/', '+', '-']
 
-
 var computeVal = function () {
 	// Get full expression as string
 	let arr = digiScreen[0].firstElementChild.value;
 	// Get full expression as array
 	let fullExpr = arr.split(/(\d*\.?\d+)/).filter(i => i.length > 0  );
-	// Get operation functions as object
-	var opFunctions = getOperations()
-  // Set order of operations
 	
 	// Loop through each operation found in expression
 	for (let op of ops) {
@@ -77,7 +82,7 @@ var computeVal = function () {
 			// Get digits before and after operator
 			let expr = [Number(fullExpr[index-1]), Number(fullExpr[index+1])]; 
 			// Make calculation and replace calculated number and operator with outcome
-			fullExpr.splice(index-1, 3, opFunctions[op](expr));
+			fullExpr.splice(index-1, 3, operate(op, expr));
 		}	
 	}
 	// Equals
@@ -93,13 +98,14 @@ var addText = function (btn) {
 		var pressed = evt.target.value; 
 		// play sound for button
 		['=', 'C'].indexOf(pressed) > -1 ? playAudio(eqSound) : playAudio(numSound)	
-		
 		if (pressed === '=') {
 			computeVal()
 		} else if (pressed === 'C') {
 			digi.value = '';
 		} else if (pressed === '<') {
 			digi.value = digi.value.substr(0, exprLen-1);
+		} else if (pressed === '.' && digi.value.indexOf('.') > -1) {
+			return
 		} else if (empty && opPressed) {
 			return
 		} else if (opPressed && ops.indexOf(digi.value[exprLen - 1]) > -1) {
@@ -115,13 +121,13 @@ var createButton = function(n=0) {
   var btn = document.createElement("button");
 	btn.style.width = "50px";
 	btn.style.height = ['=', 'C'].indexOf(n) > -1 ? "140px" : "60px";
+	'+-*/=C'.indexOf(n) > -1 ? btn.style.backgroundColor = 'rgba(255,0,35,.4)': btn.style.backgroundColor = "#747474";
 	btn.style.marginLeft = "25px";
 	btn.style.marginTop = "20px";
 	btn.style.fontSize = "20px";
 	btn.style.fontFamily = "Orbitron, sans serif";
 	btn.style.borderWidth = "2px";
 	btn.style.borderColor = "#86C232"
-	btn.style.backgroundColor = "#747474";
 	btn.style.color = "222629";
 	btn.style.outline = "0";
 	btn.textContent = n;
@@ -130,7 +136,7 @@ var createButton = function(n=0) {
 }
 
 var createNumberBtns = function() {
-	var label = Array.from('1234567890.<');
+	var label = Array.from('123456789.0<');
 	n = 0;
 	for (let row = 0; row < 4; row++) {
 		div = document.createElement("div");
