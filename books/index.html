@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+		<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+	<header>
+		<div>
+			<button class="newButton">New book</button>
+		</div>
+
+		<div class="library-title">
+			<h1>Book Shelf</h1>
+		</div>
+	</header>
+	<div class="form-popup" id="myForm">
+		<form autocomplete="off" class="form-container">
+
+			<label for="title"><b>Book Title</b></label>
+			<input type="text" placeholder="Book title" name="title" required>
+			
+			<label for="author"><b>Author</b></label>
+			<input type="text" placeholder="Author's name" name="author" required>
+
+			<label for="pages"><b>Number of pages</b></label>
+			<input type="number" placeholder="Pages" name="pages" required>
+
+			<label for="read"><b>Book read</b></label></br>
+			<select name="read" class="dropdown">
+				<option value="Read">Read</option>
+				<option value="Unread">Unread</option>
+			</select>
+
+			<button type="button" class="btn">Submit</button>
+			<button type="button" class="btn cancel" onclick="cancelForm()">Close</button>
+		</form>	
+	</div>
+	<div class="mainBody">
+	</div>
+
+	<script src="scripts/script.js"></script>
+</body>
+
+</html>
