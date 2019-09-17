@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+		<link rel="stylesheet" href="styles/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Dokdo&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<div class="player-container">
+			<div class="form-container">
+				<h2>The Amazingly Beatable Tic Tac Toe AI</h2>
+				<p>Enter Player 1 Name</p>
+				<form class="player-form" autocomplete="off">
+					<input type="text" name="playerName"></br>
+					<input class="submit-button" type="button" value="Start">
+				</form>
+			</div>
+			<div class="player">
+				<div class="player-board"><p class="name">Player 1</p></div>
+				<div class="player-board"><p class="name">Player 2</p></div>
+			</div>
+		</div>
+		<div class="board-container">
+			<div class="col">
+				<div class="board-piece" data-id=0,0 id="00"><p class="piece"></p></div>
+				<div class="board-piece" data-id=0,1 id="01"><p class="piece"></p></div>
+				<div class="board-piece" data-id=0,2 id="02"><p class="piece"></p></div>
+			</div>	
+			<div class="col">
+				<div class="board-piece" data-id=1,0 id="10"><p class="piece"></p></div>
+				<div class="board-piece" data-id=1,1 id="11"><p class="piece"></p></div>
+				<div class="board-piece" data-id=1,2 id="12"><p class="piece"></p></div>
+			</div>	
+			<div class="col">
+				<div class="board-piece" data-id=2,0 id="20"><p class="piece"></p></div>
+				<div class="board-piece" data-id=2,1 id="21"><p class="piece"></p></div>
+				<div class="board-piece" data-id=2,2 id="22"><p class="piece"></p></div>
+			</div>	
+		</div>
+
+
+	</div>
+
+
+	<script src="scripts/script.js"></script>
+</body>
+
+</html>
