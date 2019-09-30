@@ -68,10 +68,10 @@ In your project directory...
 		the following. Then call `$ npm run build` instead of `$ npx webpack`.
 
 ```		
-		"scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "webpack"
-    },
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack"
+	},
 ```
 	
 
