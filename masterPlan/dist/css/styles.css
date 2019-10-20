@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Handlee|Permanent+Marker&display=swap');
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-container {
+    width: 95%;
+    font-size: 20px;
+}
+
+.title-text {
+    font-family: 'Permanent Marker', cursive;
+    color: goldenrod;
+}
+
+.summary-text {
+    font-family: 'Handlee', cursive;
+}
+
+.summary-container {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: 10px auto;
+}
+
+.start-button {
+    border: none;
+    outline: none;
+    color: black;
+    font-family: 'Handlee', cursive;
+    font-size: 20px;
+    background-color: goldenrod;
+    height: 35px;
+    opacity: .6;
+    transition: 0.3s;
+}
+
+.start-button:hover {
+    opacity: 1;
+}
