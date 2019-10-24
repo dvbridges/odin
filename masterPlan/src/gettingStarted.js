@@ -3,20 +3,14 @@
 class StartPage {
     constructor() {
         this._container = undefined;
-        this._header = undefined;
         this._summary = undefined;
+        this.active = false;
     }
 
     _makeElement(type, className) {
         let element = document.createElement(type);
         element.className = className;
         return element;
-    }
-
-    _formatHeader() {
-        let title = this._makeElement("h2", "title-text");
-        title.innerHTML = "MasterPlan"
-        this._header.appendChild(title)
     }
 
     _formatSummary() {
@@ -35,23 +29,22 @@ class StartPage {
 
     render() {
         this._container = this._makeElement("div", "start-container")
-        this._header = this._makeElement("header", "title-header");
         this._summary = this._makeElement("div", "summary-container");
 
-        this._formatHeader();
         this._formatSummary();
 
-        this._container.appendChild(this._header)
         this._container.appendChild(this._summary)
 
         document.getElementById("content").appendChild(this._container);
+        this.active = true;
     }
 
     clearPage() {
-        document.getElementsByClassName("summary-container")[0].innerHTML = "";
+        document.getElementsByClassName("start-container")[0].style.display = "none";
+        this.active = false;
     }
 }
 
-var summaryText = "Welcome to your MasterPlan.<br/><br/>Create a new project. Projects allow you to keep related plans organised.<br/><br/>. Make a plan: Create a plan, give it a title, a description of what needs doing, then set the status and deadline.<br/><br/>To get started with your projects, click 'Begin'"
+var summaryText = "Welcome to your MasterPlan.<br/><br/>Create a new project. Projects allow you to keep related plans organised.<br/><br/>Make a plan: Create a plan, give it a title, a description of what needs doing, then set the status and deadline.<br/><br/>To get started with your projects, click 'Begin'"
 
 export { StartPage };

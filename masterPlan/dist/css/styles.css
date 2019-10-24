@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Handlee|Permanent+Marker&display=swap');
+body {
+    background-color: black;
+}
+
 #content {
     display: flex;
     flex-direction: column;
@@ -6,18 +10,96 @@
     align-items: center;
 }
 
-.start-container {
+.nav-container,
+.start-container,
+.main-container {
     width: 95%;
     font-size: 20px;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 95%;
+    font-size: 20px;
+}
+
+.nav-spacer {
+    margin: auto 0 auto 25px;
+    border-left: 3px solid goldenrod;
+    height: 40px;
+}
+
+.project-container,
+.plan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 95%;
+    font-size: 20px;
+}
+
+.plan-container {
+    margin-left: 25px;
+}
+
+.project-details,
+.plan-details {
+    display: flex;
+    flex-direction: row;
+}
+
+.project-title-container {
+    width: 250px;
+}
+
+.project-desc-container {
+    margin-left: 50px;
+    width: 550px;
+}
+
+.project-header {
+    margin: auto 0 auto 50px;
+}
+
+.project-button,
+.new-plan-button {
+    margin-top: 35px;
+    width: 150px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    outline: none;
+    color: goldenrod;
+    background-color: black;
+    font-family: 'Handlee', cursive;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.new-plan-button {
+    margin: 20px 0 0 0;
+    width: 100px;
+    text-align: left;
+}
+
+.project-button:hover,
+.new-plan-button:hover {
+    font-size: 120%;
+    font-weight: 700;
 }
 
 .title-text {
     font-family: 'Permanent Marker', cursive;
     color: goldenrod;
+    height: 30px;
 }
 
-.summary-text {
+.summary-text,
+.plan-details {
     font-family: 'Handlee', cursive;
+    color: goldenrod;
 }
 
 .summary-container {

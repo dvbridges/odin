@@ -11,7 +11,9 @@ class Plan {
 
 class PlanForm {
     constructor() {
+        this.active = false;
         this.plan = undefined;
+        this.project = undefined;
     }
 
     _makeElement(type, className) {
@@ -49,13 +51,11 @@ class PlanForm {
         calendar.name = "dueDate";
 
         // Buttons
-        let submit = this._makeElement("button", ["form-button", "submit-form"]);
-        let reset = this._makeElement("button", ["form-button", "reset-form"])
+        let submit = this._makeElement("button", ["form-button", "submit-plan"]);
+        let reset = this._makeElement("button", ["form-button", "reset-plan"])
         submit.setAttribute("type", "button")
         reset.setAttribute("type", "button")
 
-        let line = this._makeElement("hr", "form-spacer");
-        let lineBreak = this._makeElement("br");
 
         titleText.setAttribute("type", "text")
         descText.setAttribute("type", "text")
@@ -124,6 +124,8 @@ class PlanForm {
 
     _submitPlan() {
         this.plan = new Plan(_(document.getElementById("main-form"), { hash: true }));
+        document.getElementsByClassName("form-container")[0].remove()
+        this.active = false;
     }
 
     _resetPlan() {
@@ -131,7 +133,11 @@ class PlanForm {
     }
 
     render() {
-        this._createForm();
+        // project arg required to know which project to append plan
+        if (!this.active) {
+            this._createForm();
+            this.active = true;
+        }
     }
 }
 

@@ -5,6 +5,8 @@
 }
 
 .form-container {
+    position: absolute;
+    top: 50px;
     background-color: rgba(0, 1, 254, .1);
     padding: 15px;
     width: 20%;
