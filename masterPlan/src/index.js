@@ -35,6 +35,21 @@ document.getElementById("content").addEventListener("click", (event) => {
     } else if (event.target && event.target.matches("button.submit-plan")) {
         let plan = mainPage.makePlan(planTemplate.plan);
         mainPage.addPlan(planTemplate.project, plan);
+    } else if (event.target && event.target.matches("button.edit-plan")) {
+        let plan = mainPage.makePlan(planTemplate.plan);
+        mainPage.updatePlan(planTemplate.project, plan);
+    } else if (event.target && event.target.matches("div.plan-element")) {
+        planTemplate.project = event.target.parentNode
+        let tempPlan = {
+            title: event.target.parentNode.children[1].innerText,
+            desc: event.target.parentNode.children[2].innerText,
+            status: event.target.parentNode.children[3].innerText,
+            dueDate: event.target.parentNode.children[4].innerText,
+            priority: event.target.parentNode.children[5].innerText
+        }
+
+        planTemplate.render(tempPlan);
+
     }
 
 })

@@ -45,8 +45,11 @@ class ProjectForm {
         // Buttons
         let submit = this._makeElement("button", ["form-button", "submit-form"]);
         let reset = this._makeElement("button", ["form-button", "reset-form"])
+        let cancel = this._makeElement("button", "form-button")
+
         submit.setAttribute("type", "button")
         reset.setAttribute("type", "button")
+        cancel.setAttribute("type", "button")
 
         titleText.setAttribute("type", "text")
         descText.setAttribute("type", "text")
@@ -63,9 +66,12 @@ class ProjectForm {
         submit.addEventListener("click", () => this._submitProject());
         reset.innerHTML = "Reset";
         reset.addEventListener("click", () => this._resetProject());
+        cancel.innerHTML = "Cancel";
+        cancel.addEventListener("click", () => this._cancelPlan());
 
         form.appendChild(submit);
         form.appendChild(reset);
+        form.appendChild(cancel);
 
         formContainer.appendChild(form);
         document.getElementById("content").appendChild(formContainer);
@@ -79,6 +85,12 @@ class ProjectForm {
 
     _resetProject() {
         document.getElementById("main-form").reset();
+    }
+
+    _cancelPlan() {
+        this.active = false;
+        document.getElementById("main-form").reset();
+        document.getElementsByClassName("form-container")[0].remove()
     }
 
     render() {
