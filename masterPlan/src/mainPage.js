@@ -89,9 +89,9 @@ class MainPage {
             planDetails.appendChild(statusContainer);
             planDetails.appendChild(dueDateContainer);
             planDetails.appendChild(priorityContainer);
+            planDetails.style.background = priorityCols[plan.priority];
 
             planBox.appendChild(planDetails);
-            planBox.style.background = priorityCols[plan.priority];
         }
 
         return planBox;
