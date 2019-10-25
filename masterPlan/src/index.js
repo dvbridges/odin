@@ -11,12 +11,15 @@ let planTemplate = new PlanForm();
 let projectTemplate = new ProjectForm();
 
 navBar.render();
-startPage.render();
-
-document.getElementsByClassName("start-button")[0].addEventListener("click", (event) => {
-    startPage.clearPage()
-    mainPage.render()
-})
+if (localStorage.getItem("user-projects")) {
+    document.body.innerHTML = localStorage.getItem("user-projects").trim();
+} else {
+    startPage.render();
+    document.getElementsByClassName("start-button")[0].addEventListener("click", (event) => {
+        startPage.clearPage()
+        mainPage.render()
+    })
+}
 
 document.getElementsByClassName("project-button")[0].addEventListener("click", () => {
     startPage.active ? false : projectTemplate.render();
@@ -47,9 +50,8 @@ document.getElementById("content").addEventListener("click", (event) => {
             dueDate: event.target.parentNode.children[4].innerText,
             priority: event.target.parentNode.children[5].innerText
         }
-
         planTemplate.render(tempPlan);
-
     }
+    localStorage.setItem('user-projects', document.body.innerHTML);
 
 })
