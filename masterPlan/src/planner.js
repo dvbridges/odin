@@ -63,6 +63,7 @@ class PlanForm {
         calendar.name = "dueDate";
 
         // Buttons
+        let buttonContainer = this._makeElement("div", "form-button-container")
         let submitClass = plan === undefined ? ["form-button", "submit-plan"] : ["form-button", "edit-plan"]
         let submit = this._makeElement("button", submitClass);
         let reset = this._makeElement("button", ["form-button", "reset-plan"])
@@ -102,10 +103,11 @@ class PlanForm {
         cancel.innerHTML = "Cancel";
         cancel.addEventListener("click", () => this._cancelPlan());
 
-        form.appendChild(submit);
-        form.appendChild(reset);
-        form.appendChild(cancel);
+        buttonContainer.appendChild(submit);
+        buttonContainer.appendChild(reset);
+        buttonContainer.appendChild(cancel);
 
+        form.appendChild(buttonContainer);
         formContainer.appendChild(form);
         document.getElementById("content").appendChild(formContainer);
     }

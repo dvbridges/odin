@@ -2,7 +2,7 @@ import { Project } from "./projectform";
 
 class MainPage {
     constructor() {
-        this._projectN = 0;
+        this._projectN = localStorage.getItem("projectN") === undefined ? 0 : Number(localStorage.getItem("projectN"));
 
     }
 
@@ -26,26 +26,31 @@ class MainPage {
         let descContainer = this._makeElement("div", "project-desc-container");
         let statusContainer = this._makeElement("div", "project-title-container");
         let dueDateContainer = this._makeElement("div", "project-title-container");
+        let deleteContainer = this._makeElement("div", "project-title-container");
 
         let projectBoxTitle = this._makeElement("h2", "title-text");
         let projectBoxDesc = this._makeElement("h2", "title-text");
         let projectBoxStatus = this._makeElement("h2", "title-text");
         let projectBoxDueDate = this._makeElement("h2", "title-text");
+        let projectDelete = this._makeElement("button", "project-delete-button")
 
         projectBoxTitle.innerHTML = project.title === undefined ? `Project ${this._projectN}` : project.title;
         projectBoxDesc.innerHTML = project.desc === undefined ? 'Description' : project.desc;
         projectBoxStatus.innerHTML = "Status";
         projectBoxDueDate.innerHTML = "Due Date";
+        projectDelete.innerHTML = "Delete";
 
         titleContainer.appendChild(projectBoxTitle);
         descContainer.appendChild(projectBoxDesc);
         statusContainer.appendChild(projectBoxStatus);
         dueDateContainer.appendChild(projectBoxDueDate);
+        deleteContainer.appendChild(projectDelete);
 
         projectDetails.appendChild(titleContainer);
         projectDetails.appendChild(descContainer);
         projectDetails.appendChild(statusContainer);
         projectDetails.appendChild(dueDateContainer);
+        projectDetails.appendChild(deleteContainer);
 
         projectBox.appendChild(projectDetails);
         return projectBox;
@@ -54,13 +59,12 @@ class MainPage {
     _createLayout() {
         let mainContainer = document.createElement("div");
         mainContainer.className = "main-container";
-        //mainContainer.appendChild(this._makeProject({ title: "Project", desc: "Description" }))
         document.getElementById("content").appendChild(mainContainer);
     }
 
     _makePlan(plan) {
 
-        let priorityCols = { Low: "lightgreen", Medium: "orange", High: "red" }
+        let priorityCols = { Low: "#7CBB00", Medium: "#FFBB00", High: "#F65314" }
         let planBox = this._makeElement("div", "plan-container");
         let planDetails = this._makeElement("div", "plan-details");
 
@@ -83,13 +87,13 @@ class MainPage {
             checkbox.setAttribute("type", "checkbox");
             checkContainer.appendChild(checkbox);
 
-            planDetails.appendChild(checkContainer);
             planDetails.appendChild(titleContainer);
             planDetails.appendChild(descContainer);
             planDetails.appendChild(statusContainer);
             planDetails.appendChild(dueDateContainer);
             planDetails.appendChild(priorityContainer);
-            planDetails.style.background = priorityCols[plan.priority];
+            planDetails.appendChild(checkContainer);
+            planDetails.style.background = plan.status === "Finished" ? "silver" : priorityCols[plan.priority];
 
             planBox.appendChild(planDetails);
         }
@@ -108,6 +112,7 @@ class MainPage {
 
     addProject(project) {
         this._projectN += 1;
+        localStorage.setItem("projectN", this._projectN)
         let newproj = this._makeProject(project);
         let button = this._makeAddPlanButton();
         newproj.appendChild(button);

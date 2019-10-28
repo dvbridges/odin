@@ -43,9 +43,13 @@ class ProjectForm {
         descText.name = "descText";
 
         // Buttons
+        let buttonContainer = this._makeElement("div", "form-button-container")
+
         let submit = this._makeElement("button", ["form-button", "submit-form"]);
         let reset = this._makeElement("button", ["form-button", "reset-form"])
         let cancel = this._makeElement("button", "form-button")
+
+
 
         submit.setAttribute("type", "button")
         reset.setAttribute("type", "button")
@@ -69,10 +73,10 @@ class ProjectForm {
         cancel.innerHTML = "Cancel";
         cancel.addEventListener("click", () => this._cancelPlan());
 
-        form.appendChild(submit);
-        form.appendChild(reset);
-        form.appendChild(cancel);
-
+        buttonContainer.appendChild(submit);
+        buttonContainer.appendChild(reset);
+        buttonContainer.appendChild(cancel);
+        form.appendChild(buttonContainer);
         formContainer.appendChild(form);
         document.getElementById("content").appendChild(formContainer);
     }

@@ -5,7 +5,13 @@ class NavBar {
 
     _makeElement(type, className) {
         let element = document.createElement(type);
-        element.className = className;
+        if (className !== undefined) {
+            if (typeof className === "object") {
+                element.classList.add(...className)
+            } else {
+                element.className = className
+            }
+        }
         return element;
     }
 
@@ -17,13 +23,16 @@ class NavBar {
 
         let spacer = this._makeElement("div", "nav-spacer")
 
-        let newProject = document.createElement("button");
-        newProject.className = "project-button";
+        let newProject = this._makeElement("button", ["project-button", "new-project-button"]);
         newProject.innerHTML = "New project"
+
+        let resetProject = this._makeElement("button", ["project-button", "reset-project-button"]);
+        resetProject.innerHTML = "Reset projects"
 
         container.appendChild(title);
         container.appendChild(spacer);
         container.appendChild(newProject);
+        container.appendChild(resetProject);
         return container;
     }
 

@@ -7,19 +7,21 @@
 .form-container {
     position: absolute;
     top: 50px;
-    background-color: rgba(0, 1, 254, 1);
+    background-color: #272727;
+    border: 2px solid #C3073F;
     padding: 15px;
     width: 20%;
 }
 
 .form-title {
     font-family: 'Permanent Marker', cursive;
-    color: goldenrod;
+    margin-bottom: 1px;
+    color: orange;
 }
 
 .form-text {
     border: 1px solid;
-    border-color: goldenrod;
+    border-color: orange;
     width: 95%;
     min-height: 30px;
     font-family: 'Handlee', cursive;
@@ -34,7 +36,7 @@
     width: 95%;
     min-height: 35px;
     background-color: white;
-    border: 1px solid goldenrod;
+    border: 1px solid orange;
     font-family: 'Handlee', cursive;
     font-size: 20px;
 }
@@ -43,7 +45,7 @@
     width: 95%;
     min-height: 35px;
     background-color: white;
-    border: 1px solid goldenrod;
+    border: 1px solid orange;
     font-family: 'Handlee', cursive;
     font-size: 20px;
 }
@@ -51,15 +53,20 @@
 .form-button {
     width: 96%;
     border: none;
+    margin: 2px;
     font-family: 'Handlee', cursive;
     font-size: 20px;
     min-height: 35px;
     margin-top: 20px;
-    background-color: goldenrod;
+    background-color: orange;
     opacity: .6;
     transition: 0.3s;
 }
 
 .form-button:hover {
     opacity: 1;
+}
+
+.form-button-container {
+    display: flex;
 }

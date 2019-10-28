@@ -2,8 +2,6 @@
 
 class StartPage {
     constructor() {
-        this._container = undefined;
-        this._summary = undefined;
         this.active = false;
     }
 
@@ -13,29 +11,51 @@ class StartPage {
         return element;
     }
 
-    _formatSummary() {
-        let title = this._makeElement("h1", "title-text");
-        let summary = this._makeElement("p", "summary-text");
-        let button = this._makeElement("button", "start-button")
+    _formatTitle() {
+        let titleContainer = this._makeElement("div", "start-title-container")
+        let title = this._makeElement("h1", "start-title-text");
 
         title.innerHTML = "MasterPlan";
-        summary.innerHTML = summaryText;
-        button.innerHTML = "Begin";
+        titleContainer.appendChild(title);
+        return titleContainer;
+    }
 
-        this._summary.appendChild(title);
-        this._summary.appendChild(summary);
-        this._summary.appendChild(button);
+    _formatSummary() {
+
+        let summaryContainer = this._makeElement("div", "summary-container");
+        let button = this._makeElement("button", "start-button")
+        let mainTitle = this._makeElement("h1", "summary-text")
+        mainTitle.innerHTML = t
+        summaryContainer.appendChild(mainTitle)
+
+        let titles = [t1, t2, t3, t4];
+        let ps = [t1text, t2text, t3text, t4text];
+        for (let i = 0; i < 4; i++) {
+            let titleText = this._makeElement("h2", "summary-text")
+            let pText = this._makeElement("p", "summary-text")
+            titleText.innerHTML = titles[i]
+            pText.innerHTML = ps[i]
+            summaryContainer.appendChild(titleText);
+            summaryContainer.appendChild(pText);
+        }
+        button.innerHTML = "Begin";
+        summaryContainer.appendChild(button)
+
+        return summaryContainer
     }
 
     render() {
-        this._container = this._makeElement("div", "start-container")
-        this._summary = this._makeElement("div", "summary-container");
+        let container = this._makeElement("div", "start-container")
 
-        this._formatSummary();
+        container.appendChild(this._makeElement("hr", "hr-line"))
+        container.appendChild(this._formatTitle())
+        container.appendChild(this._makeElement("hr", "hr-line"))
+        container.appendChild(this._formatSummary())
+        container.appendChild(this._makeElement("hr", "hr-line"))
+        container.appendChild(this._makeElement("div", "summary-container"))
+        container.appendChild(this._makeElement("hr", "hr-line"))
 
-        this._container.appendChild(this._summary)
-
-        document.getElementById("content").appendChild(this._container);
+        document.getElementById("content").appendChild(container);
         this.active = true;
     }
 
@@ -45,6 +65,14 @@ class StartPage {
     }
 }
 
-var summaryText = "Welcome to your MasterPlan.<br/><br/>Create a new project. Projects allow you to keep related plans organised.<br/><br/>Make a plan: Create a plan, give it a title, a description of what needs doing, then set the status and deadline.<br/><br/>To get started with your projects, click 'Begin'"
-
 export { StartPage };
+let t = "Welcome to your MasterPlan";
+let t1 = "Create projects"
+let t1text = "Create projects to keep related plans organised."
+let t2 = "Create plans"
+let t2text = "A project is a collection of plans. Create a plan, give it a title, description, status, priority level with intuitive color indicator and deadline."
+let t3 = "Change plans"
+let t3text = "Even the best laid plans have gone awry - Click plans to edit the information, such as changing their status."
+let t4 = "Deleting projects and plans"
+let t4text = "You can delete unwanted projects or plans using the delete and checkbox buttons. Reset your entire project page using the reset button in the navigation bar."
+let t5 = "Now lets begin!"
