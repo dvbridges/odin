@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    word-wrap: break-word;
 }
 
 .nav-container,
@@ -117,11 +118,13 @@ p.summary-text {
 
 .project-title-container {
     min-width: 250px;
+    max-width: 250px;
 }
 
 .project-desc-container {
     margin: 0 25px 0 25px;
     min-width: 550px;
+    max-width: 550px;
 }
 
 .project-header {
