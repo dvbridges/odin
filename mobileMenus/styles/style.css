@@ -1,0 +1,66 @@
+#content {
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    text-align: center;
+}
+
+header {
+    display: flex;
+}
+
+.menu-btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  margin: 2px;
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 36px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.menu-btn:hover {
+    background-color: royalblue;    
+}
+
+/* Styling for BUTTON dropdown */
+/*******************************/
+.dropdown-btn-container {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-btn-content {
+    display: none;
+    text-align: left;
+    position: absolute;
+    left: 50%;
+    margin-left: -31px;
+    width: 63px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: ;
+}
+
+.fa-bars {
+    pointer-events: none;
+}
+
+/* Links inside the dropdown */
+.dropdown-btn-content a {
+    display: block;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    opacity: .6;
+  }
+
+.dropdown-btn-content a:hover {
+    opacity: 1;
+}
+
+.show {display:block;}

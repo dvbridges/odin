@@ -49,8 +49,6 @@ class ProjectForm {
         let reset = this._makeElement("button", ["form-button", "reset-form"])
         let cancel = this._makeElement("button", "form-button")
 
-
-
         submit.setAttribute("type", "button")
         reset.setAttribute("type", "button")
         cancel.setAttribute("type", "button")
@@ -76,6 +74,7 @@ class ProjectForm {
         buttonContainer.appendChild(submit);
         buttonContainer.appendChild(reset);
         buttonContainer.appendChild(cancel);
+
         form.appendChild(buttonContainer);
         formContainer.appendChild(form);
         document.getElementById("content").appendChild(formContainer);
