@@ -1,0 +1,86 @@
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+}
+
+.title-container {
+    text-align: center;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 5vh;
+    color: royalblue;
+}
+
+.title {
+    margin: 0;
+    margin-top: 20px;
+}
+
+.slide-container, .slide-control-container, .arrow-control-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.arrow-control-container {
+    margin-top: 50px;
+}
+
+.slide-container {
+    height: 600px;
+}
+
+
+.pic-frame {
+    margin: 20px;
+    background-color: royalblue;
+}
+
+.dot {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 20px;
+    border: 2px royalblue solid;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  margin: -50px 50px 0 50px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  width: 100px;
+}
+
+.markerStyle {
+    -webkit-transition: background-color 1s ease-in-out;
+    -moz-transition: background-color 1s ease-in-out;
+    -o-transition: background-color 1s ease-in-out;    
+    transition: background-color 1s ease-in-out;
+    background-color: royalblue;
+}
+
+img {
+    width: 600px ;
+    height: auto;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;    
+    transition: width 1s ease-in-out;
+}
+
+.imageScale {
+    width: 800px  ;
+    height: auto;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;    
+    transition: width 1s ease-in-out;
+}
