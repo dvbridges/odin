@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 600px;
+}
+
+em {
+    color: royalblue;
+}
+
+.form-container {
+    border: 2px solid darkgrey;
+    width: 500px;
+    padding: 10px;
+}
+
+fieldset {
+    border: 1px solid darkgray;
+    width: 90%;
+}
+
+input:invalid {
+    box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+    box-shadow: none;
+}
+
+#anyother {
+    width: 95%;
+}

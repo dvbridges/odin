@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form validation</title>
+		<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-example-container">
+
+        <h1>Demonstrations of form validation using HTML</h1>
+      <form class="form">
+
+        <p><em>First, we will look at the required attribute - input is required to be valid.
+            <br> The css file styles the validity - red for valid.
+            <br> Indicating required fields is a WCAG accessibility requirement.</em></p>
+        <label for="choose">Do you prefer banana or cherry?</label>
+        <input id="choose" name="fruit-prefs"  required>
+        <p><em>Use the pattern attribute to invoke regular expression pattern matching
+            <br>Now you must type banana or cherry for a valid response.</em></p>
+        <label for="choose-with-regex">Do you prefer banana or cherry?</label>
+        <input id="choose-with-regex" name="fruit-prefs-regex"  required pattern="banana|cherry">
+        <p><em>Another regular expression pattern matching - requiring a valid email pattern</em></p>
+        <label for="email-with-regex">Enter a typical valid email address e.g., me@hotmail.com</label>
+        <input id="email-with-regex" name="email-regex" required pattern="[a-z-£$%^&*(]+@[a-z]+[.][a-z]+">
+        <p><em>Constrain the length of the input using minlengh and maxlength attributes.
+        <br>For number type inputs, use the min and max attributes to control number input.</em></p>
+        <label for="constrain-len">Banana or cherry?</label>
+        <input id="constrain-len" name="constrain-len" required minlength="6" maxlength="6">
+        <br>
+        <label for="amount">How many would you like? Between 1 and 12.</label>
+        <input id="amount" name="amount" type="number" required value="1" min="1" max="12">
+        <br>
+        <p><em>Finally, you can only customise the error messages using JavaScript</em></p>
+        <label for="custom-error">Enter a valid email</label>
+        <input type="email" id="custom-error" name="custom-error">
+        <br><br>
+        <button>Ok</button>
+
+      </form>
+
+    </div>
+
+    <div class="form-container">
+      <h1>Full example</h1>
+      <form class="form-demo">
+
+        <fieldset>
+            <legend>Do you have a drivers licence?<abbr title="Mandatory" aria-label="required">*</abbr></legend>
+            <input type="radio" required name="driver" id="r1" value="yes">
+                <label for="r1">Yes</label>
+            <input type="radio" required name="driver" id="r2" value="no">
+                <label for="r2">No</label>
+        </fieldset>
+        <br>
+        <label for="age">Enter your age in whole years.</label>
+        <input id="age" name="age" type="number" required min="16" max="100">
+        <br>
+        <br>
+        <label for="email-with-regex">Enter your email address.</label>
+        <input id="email-with-regex" name="email-regex" required pattern="[a-z-£$%^&*(]+@[a-z]+[.][a-z]+">
+        <br>
+        <br>
+        <label for="anyother">Any other details</label>
+        <br>
+        <textarea type="text" id="anyother" name="anyother" maxlength="140" rows="5"></textarea>
+        <button>Submit</button>
+
+      </form>
+    </div>
+
+  </div>
+	<script src="scripts/script.js"></script>
+</body>
+
+</html>
