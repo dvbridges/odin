@@ -4,3 +4,37 @@
     margin: auto;
     width: 600px;
 }
+
+p * {
+    display: block;
+}
+
+input[type=email] {
+    margin-top: 20px;
+
+}
+input:invalid {
+    border-color: #900;
+    background-color: #FDD
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+.error {
+    width  : 100%;
+    padding: 0;
+    height: 10px;
+   
+    font-size: 80%;
+    color: #900;
+    border-radius: 0 0 5px 5px;
+   
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .error.active {
+    padding: 0.3em;
+  }

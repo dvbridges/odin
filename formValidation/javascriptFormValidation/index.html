@@ -3,15 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Form validation</title>
+    <title>Form validation - JavaScript</title>
 		<link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
   <div class="container">
     <div class="form-container">
-      <form class="form">
-        <input class="user-input">
+      <form class="form" novalidate>
+        <p>
+          <label for="mail">
+            <span>Please enter an email address</span>
+            <input type="email" id="mail" name="mail">
+            <span class="error" aria-live="polite"></span>
+          </label>
+        </p>
+        <button>Submit</button>
       </form>
     </div>
 
