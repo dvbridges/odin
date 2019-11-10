@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Account Form Validation</title>
+		<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-container">
+      <form class="form" novalidate>
+        <fieldset>
+          <legend>User account details</legend>
+          <p>
+            <label for="mail">
+              <span>Please enter your email address</span>
+              <input type="email" id="mail" name="mail">
+              <span class="emailError" aria-live="polite"></span>
+            </label>
+          </p>
+
+          <p>
+            <label for="duplicateMail">
+              <span>Please re-enter your email address</span>
+              <input type="email" id="duplicateMail" name="diplicateMail">
+              <span class="emailError" aria-live="polite"></span>
+            </label>
+          </p>
+          
+          <p>
+            <label for="address">
+              <span>Please enter your postal address</span><br>
+              <label for="addressNumber" >
+                <span style="margin-left: 25px">Address Number</span>
+                <input type='text' id="addressNumber" name = "addressNumber"><br>
+              </label>
+              <label for="addressStreet" >
+                <span style="margin-left: 25px">Street name</span>
+                <input type='text' id="addressStreet" name = "addressStreet"><br>
+              </label>
+              <label for="addressCity" >
+                <span style="margin: 25px">Town or city</span>
+                <input type='text' id="addressCity" name = "addressCity"><br>
+              </label>
+            </label>
+          </p>
+
+          <p>
+            <label for="postcode">
+              <span>Please enter your post-code</span>
+              <input type="text" id="postcode" name="postcode">
+              <span class="postcodeError" aria-live="polite"></span>
+            </label>
+          </p>
+
+          <p>
+            <label for="pass">
+              <span>Please enter a password</span>
+              <input type="password" id="pass" name="pass">
+            </label>
+          </p>
+
+            <label for="checkPass">
+              <span>Please re-enter your password</span>
+              <input type="password" id="checkPass" name="checkPass">
+              <span class="passError" aria-live="polite"></span>
+            </label>
+          </p>
+
+        <button>Submit</button>
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+	<script src="scripts/script.js"></script>
+</body>
+
+</html>
